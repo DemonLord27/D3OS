@@ -3,14 +3,17 @@ from rich import print as pr
 from rich.panel import Panel as pn
 from rich.text import Text
 
-
+os.system('clear')
 
 logo = """
 ┳┓┏┓┏┓┏┓        author  : DemonLord27
 ┃┃ ┫┃┃┗┓        version : 0.1
 ┻┛┗┛┗┛┗┛     
 """
-os.remove('.prox.txt')
+try:
+    os.remove('.prox.txt')
+except OSError:
+    os.system('clear')
 prox= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all').text
 with open('.prox.txt', 'w') as file:
     file.write(prox)
